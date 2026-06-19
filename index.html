@@ -917,17 +917,4 @@
         /   // Navbar background on scroll
         window.addEventListener('scroll', function() {
             const nav = document.querySelector('nav');
-            if (window.scr
-function toggleDropdown(event, el) {
-    event.preventDefault();
-    event.stopPropagation();
-    const li = el.closest('.nav-dropdown');
-    li.classList.toggle('open');
-}
-
-// Close dropdown when clicking anywhere outside
-document.addEventListener('click', function(e) {
-    if (!e.target.closest('.nav-dropdown')) {
-        document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
-    }
-});
+            if (window.scr 
