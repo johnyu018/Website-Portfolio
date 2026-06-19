@@ -507,7 +507,18 @@
                 <li><a href="#home" onclick="closeMenu()">Home</a></li>
                 <li><a href="#about" onclick="closeMenu()">About</a></li>
                 <li><a href="#services" onclick="closeMenu()">Services</a></li>
-                <li><a href="#portfolio" onclick="closeMenu()">Portfolio</a></li>
+               <li class="nav-dropdown">
+    <a href="#portfolio" onclick="closeMenu()" class="dropdown-toggle">
+        Portfolio <span class="dropdown-arrow">▾</span>
+    </a>
+    <ul class="dropdown-menu">
+        <li><a href="#portfolio" onclick="closeMenu(); filterPortfolio('web')">💻 Web Development</a></li>
+        <li><a href="#portfolio" onclick="closeMenu(); filterPortfolio('seo')">🔍 SEO Projects</a></li>
+        <li><a href="#portfolio" onclick="closeMenu(); filterPortfolio('marketing')">📱 Digital Marketing</a></li>
+        <li><a href="#portfolio" onclick="closeMenu(); filterPortfolio('design')">🎨 UI/UX Design</a></li>
+        <li><a href="#portfolio" onclick="closeMenu(); filterPortfolio('all')">📁 All Projects</a></li>
+    </ul>
+</li>
                 <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
             </ul>
         </div>
@@ -687,7 +698,7 @@
                         <i>📱</i>
                         <div>
                             <h3>Phone</h3>
-                            <p>+63 960 819 8284</p>
+                            <p>+63 924 103 7727</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -777,7 +788,76 @@
         height: 28px;
     }
 }
-</style>
+/* Portfolio Dropdown Submenu */
+.nav-dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.dropdown-arrow {
+    font-size: 0.8rem;
+    transition: transform 0.3s;
+}
+
+.nav-dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--white);
+    list-style: none;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    min-width: 200px;
+    padding: 0.5rem 0;
+    z-index: 200;
+    margin-top: 0.5rem;
+}
+
+.nav-dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 0.6rem 1.2rem;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    font-weight: 400;
+    white-space: nowrap;
+    transition: background 0.2s, color 0.2s;
+}
+
+.dropdown-menu li a:hover {
+    background: var(--bg-light);
+    color: var(--primary-color);
+}
+
+/* Mobile: show submenu on click instead */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: static;
+        transform: none;
+        box-shadow: none;
+        border-radius: 0;
+        background: var(--bg-light);
+        padding-left: 1rem;
+        display: none;
+    }
+    .nav-dropdown.open .dropdown-menu {
+        display: block;
+    }
+}</style>
 
 <!-- Add this HTML anywhere in your <body>, preferably before closing </body> tag -->
 <a href="https://www.messenger.com/t/johnyu018" target="_blank" class="messenger-button pulse" aria-label="Chat on Messenger">
